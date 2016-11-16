@@ -13,6 +13,14 @@
 		AAC9D9051DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9031DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld */; };
 		AAC9D9071DDCEA53000388DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC9D9061DDCEA53000388DB /* Assets.xcassets */; };
 		AAC9D90A1DDCEA53000388DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC9D9081DDCEA53000388DB /* LaunchScreen.storyboard */; };
+		AAC9D9191DDCEBAA000388DB /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9111DDCEBAA000388DB /* Item+CoreDataClass.swift */; };
+		AAC9D91A1DDCEBAA000388DB /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9121DDCEBAA000388DB /* Item+CoreDataProperties.swift */; };
+		AAC9D91B1DDCEBAA000388DB /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9131DDCEBAA000388DB /* Image+CoreDataClass.swift */; };
+		AAC9D91C1DDCEBAA000388DB /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9141DDCEBAA000388DB /* Image+CoreDataProperties.swift */; };
+		AAC9D91D1DDCEBAA000388DB /* ItemType+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9151DDCEBAA000388DB /* ItemType+CoreDataClass.swift */; };
+		AAC9D91E1DDCEBAA000388DB /* ItemType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9161DDCEBAA000388DB /* ItemType+CoreDataProperties.swift */; };
+		AAC9D91F1DDCEBAA000388DB /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9171DDCEBAA000388DB /* Store+CoreDataClass.swift */; };
+		AAC9D9201DDCEBAA000388DB /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9181DDCEBAA000388DB /* Store+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		AAC9D9061DDCEA53000388DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC9D9091DDCEA53000388DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAC9D90B1DDCEA53000388DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAC9D9111DDCEBAA000388DB /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AAC9D9121DDCEBAA000388DB /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AAC9D9131DDCEBAA000388DB /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AAC9D9141DDCEBAA000388DB /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AAC9D9151DDCEBAA000388DB /* ItemType+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AAC9D9161DDCEBAA000388DB /* ItemType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AAC9D9171DDCEBAA000388DB /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AAC9D9181DDCEBAA000388DB /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +56,14 @@
 		AAC9D8F01DDCEA52000388DB = {
 			isa = PBXGroup;
 			children = (
+				AAC9D9111DDCEBAA000388DB /* Item+CoreDataClass.swift */,
+				AAC9D9121DDCEBAA000388DB /* Item+CoreDataProperties.swift */,
+				AAC9D9131DDCEBAA000388DB /* Image+CoreDataClass.swift */,
+				AAC9D9141DDCEBAA000388DB /* Image+CoreDataProperties.swift */,
+				AAC9D9151DDCEBAA000388DB /* ItemType+CoreDataClass.swift */,
+				AAC9D9161DDCEBAA000388DB /* ItemType+CoreDataProperties.swift */,
+				AAC9D9171DDCEBAA000388DB /* Store+CoreDataClass.swift */,
+				AAC9D9181DDCEBAA000388DB /* Store+CoreDataProperties.swift */,
 				AAC9D8FB1DDCEA53000388DB /* iOS 10 Core Data */,
 				AAC9D8FA1DDCEA53000388DB /* Products */,
 			);
@@ -142,7 +166,15 @@
 			files = (
 				AAC9D9051DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld in Sources */,
 				AAC9D8FF1DDCEA53000388DB /* ViewController.swift in Sources */,
+				AAC9D91E1DDCEBAA000388DB /* ItemType+CoreDataProperties.swift in Sources */,
+				AAC9D9191DDCEBAA000388DB /* Item+CoreDataClass.swift in Sources */,
+				AAC9D9201DDCEBAA000388DB /* Store+CoreDataProperties.swift in Sources */,
+				AAC9D91B1DDCEBAA000388DB /* Image+CoreDataClass.swift in Sources */,
+				AAC9D91D1DDCEBAA000388DB /* ItemType+CoreDataClass.swift in Sources */,
 				AAC9D8FD1DDCEA53000388DB /* AppDelegate.swift in Sources */,
+				AAC9D91F1DDCEBAA000388DB /* Store+CoreDataClass.swift in Sources */,
+				AAC9D91A1DDCEBAA000388DB /* Item+CoreDataProperties.swift in Sources */,
+				AAC9D91C1DDCEBAA000388DB /* Image+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
