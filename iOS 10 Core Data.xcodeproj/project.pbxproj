@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA3616571DDCF10B00A3FB3F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3616561DDCF10B00A3FB3F /* MaterialView.swift */; };
 		AAC9D8FD1DDCEA53000388DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */; };
-		AAC9D8FF1DDCEA53000388DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D8FE1DDCEA53000388DB /* ViewController.swift */; };
+		AAC9D8FF1DDCEA53000388DB /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D8FE1DDCEA53000388DB /* MainVC.swift */; };
 		AAC9D9021DDCEA53000388DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAC9D9001DDCEA53000388DB /* Main.storyboard */; };
 		AAC9D9051DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D9031DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld */; };
 		AAC9D9071DDCEA53000388DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC9D9061DDCEA53000388DB /* Assets.xcassets */; };
@@ -24,9 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA3616561DDCF10B00A3FB3F /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		AAC9D8F91DDCEA53000388DB /* iOS 10 Core Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS 10 Core Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAC9D8FE1DDCEA53000388DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAC9D8FE1DDCEA53000388DB /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		AAC9D9011DDCEA53000388DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAC9D9041DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_10_Core_Data.xcdatamodel; sourceTree = "<group>"; };
 		AAC9D9061DDCEA53000388DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA3616551DDCF0ED00A3FB3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA3616561DDCF10B00A3FB3F /* MaterialView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		AAC9D8F01DDCEA52000388DB = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +90,9 @@
 		AAC9D8FB1DDCEA53000388DB /* iOS 10 Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				AA3616551DDCF0ED00A3FB3F /* View */,
 				AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */,
-				AAC9D8FE1DDCEA53000388DB /* ViewController.swift */,
+				AAC9D8FE1DDCEA53000388DB /* MainVC.swift */,
 				AAC9D9001DDCEA53000388DB /* Main.storyboard */,
 				AAC9D9061DDCEA53000388DB /* Assets.xcassets */,
 				AAC9D9081DDCEA53000388DB /* LaunchScreen.storyboard */,
@@ -165,8 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC9D9051DDCEA53000388DB /* iOS_10_Core_Data.xcdatamodeld in Sources */,
-				AAC9D8FF1DDCEA53000388DB /* ViewController.swift in Sources */,
+				AAC9D8FF1DDCEA53000388DB /* MainVC.swift in Sources */,
 				AAC9D91E1DDCEBAA000388DB /* ItemType+CoreDataProperties.swift in Sources */,
+				AA3616571DDCF10B00A3FB3F /* MaterialView.swift in Sources */,
 				AAC9D9191DDCEBAA000388DB /* Item+CoreDataClass.swift in Sources */,
 				AAC9D9201DDCEBAA000388DB /* Store+CoreDataProperties.swift in Sources */,
 				AAC9D91B1DDCEBAA000388DB /* Image+CoreDataClass.swift in Sources */,
@@ -336,6 +348,7 @@
 				AAC9D9101DDCEA53000388DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
