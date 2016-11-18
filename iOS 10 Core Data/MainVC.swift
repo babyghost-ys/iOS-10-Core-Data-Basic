@@ -23,6 +23,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         tableView.delegate = self
         tableView.dataSource = self
         
+        //generateTestData()
         attemptFetch()
     }
 
@@ -117,6 +118,20 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
             }
             break
         }
+    }
+    
+    func generateTestData(){
+        let item = Item(context: context)
+        item.title = "MacBook Pro"
+        item.price = 1000
+        item.details = "No money"
+        
+        let item2 = Item(context: context)
+        item2.title = "MacBook Pro"
+        item2.price = 1000
+        item2.details = "No money"
+        
+        AppD.saveContext()
     }
 }
 
