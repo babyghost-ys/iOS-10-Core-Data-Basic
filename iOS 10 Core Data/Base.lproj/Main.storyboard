@@ -37,11 +37,11 @@
                                 <rect key="frame" x="16" y="132" width="343" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="RNz-re-Flc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="150" id="RNz-re-Flc" customClass="ItemCell" customModule="iOS_10_Core_Data" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RNz-re-Flc" id="ZQz-DY-j96">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ck-uB-YqZ">
@@ -106,6 +106,12 @@
                                                 <constraint firstItem="1Ck-uB-YqZ" firstAttribute="bottom" secondItem="ZQz-DY-j96" secondAttribute="bottomMargin" id="xdN-mJ-jdf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgThumb" destination="JDy-Ie-9tT" id="W39-sf-22u"/>
+                                            <outlet property="lblDetails" destination="eDl-tT-IE0" id="dby-VN-Jbh"/>
+                                            <outlet property="lblPrice" destination="vLg-7f-U3r" id="vo1-xg-Ihk"/>
+                                            <outlet property="lblTitle" destination="EYY-3E-fOR" id="Zud-wp-7n3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -124,6 +130,10 @@
                     <navigationItem key="navigationItem" id="Nve-TW-KxU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T24-8J-dRu"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentControl" destination="Fpf-hI-AfC" id="VFh-s5-hU6"/>
+                        <outlet property="tableView" destination="cdb-2h-t1B" id="3Vc-Xa-qaq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
