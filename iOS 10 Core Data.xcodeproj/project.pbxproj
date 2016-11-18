@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA1D567C1DDF54E700294ACC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D567B1DDF54E700294ACC /* ItemCell.swift */; };
+		AA1D567F1DDF6DEF00294ACC /* ItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1D567E1DDF6DEF00294ACC /* ItemDetailVC.swift */; };
 		AA3616571DDCF10B00A3FB3F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3616561DDCF10B00A3FB3F /* MaterialView.swift */; };
 		AAC9D8FD1DDCEA53000388DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */; };
 		AAC9D8FF1DDCEA53000388DB /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC9D8FE1DDCEA53000388DB /* MainVC.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		AA1D567B1DDF54E700294ACC /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		AA1D567E1DDF6DEF00294ACC /* ItemDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailVC.swift; sourceTree = "<group>"; };
 		AA3616561DDCF10B00A3FB3F /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		AAC9D8F91DDCEA53000388DB /* iOS 10 Core Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS 10 Core Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA1D567D1DDF6DD800294ACC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA1D567E1DDF6DEF00294ACC /* ItemDetailVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		AA3616551DDCF0ED00A3FB3F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		AAC9D8FB1DDCEA53000388DB /* iOS 10 Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				AA1D567D1DDF6DD800294ACC /* Controller */,
 				AA3616551DDCF0ED00A3FB3F /* View */,
 				AAC9D8FC1DDCEA53000388DB /* AppDelegate.swift */,
 				AAC9D8FE1DDCEA53000388DB /* MainVC.swift */,
@@ -188,6 +199,7 @@
 				AAC9D91B1DDCEBAA000388DB /* Image+CoreDataClass.swift in Sources */,
 				AAC9D91D1DDCEBAA000388DB /* ItemType+CoreDataClass.swift in Sources */,
 				AAC9D8FD1DDCEA53000388DB /* AppDelegate.swift in Sources */,
+				AA1D567F1DDF6DEF00294ACC /* ItemDetailVC.swift in Sources */,
 				AAC9D91F1DDCEBAA000388DB /* Store+CoreDataClass.swift in Sources */,
 				AAC9D91A1DDCEBAA000388DB /* Item+CoreDataProperties.swift in Sources */,
 				AAC9D91C1DDCEBAA000388DB /* Image+CoreDataProperties.swift in Sources */,

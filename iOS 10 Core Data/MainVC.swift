@@ -127,9 +127,9 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         item.details = "No money"
         
         let item2 = Item(context: context)
-        item2.title = "MacBook Pro"
+        item2.title = "MacBook Pro2"
         item2.price = 1000
-        item2.details = "No money"
+        item2.details = "No money2"
         
         AppD.saveContext()
     }
