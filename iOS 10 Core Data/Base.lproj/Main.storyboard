@@ -94,9 +94,11 @@
                                                         <constraint firstItem="JDy-Ie-9tT" firstAttribute="leading" secondItem="1Ck-uB-YqZ" secondAttribute="leading" constant="8" id="sM9-v6-MeC"/>
                                                         <constraint firstItem="EYY-3E-fOR" firstAttribute="leading" secondItem="JDy-Ie-9tT" secondAttribute="trailing" constant="8" id="tnh-e7-Rnp"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.55521797873656265" green="0.81295159354470892" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1Ck-uB-YqZ" secondAttribute="trailing" id="fxH-yo-Fr7"/>
                                                 <constraint firstItem="1Ck-uB-YqZ" firstAttribute="top" secondItem="ZQz-DY-j96" secondAttribute="topMargin" id="g4t-8g-WTZ"/>
