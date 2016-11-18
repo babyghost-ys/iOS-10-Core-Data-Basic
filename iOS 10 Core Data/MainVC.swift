@@ -22,6 +22,8 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        attemptFetch()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,15 +33,35 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
 
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        
+        if let sections = fetchResultController.sections {
+            return sections.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        configureCell(cell: cell, indexpath: indexPath as NSIndexPath)
         return UITableViewCell()
     }
     
+    func configureCell(cell: ItemCell, indexpath: NSIndexPath){
+        let item = fetchResultController.object(at: indexpath as IndexPath)
+        cell.configureCell(item: item)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let sections = fetchResultController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     func attemptFetch(){
@@ -48,6 +70,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         fetchRequestofType.sortDescriptors = [dateSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequestofType, managedObjectContext:context, sectionNameKeyPath: nil, cacheName: nil)
+        self.fetchResultController = controller
         
         do {
             try controller.performFetch()
@@ -81,7 +104,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         case .update:
             if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
-                
+                configureCell(cell: cell, indexpath: indexPath as NSIndexPath)
             }
             break
         case .move:
