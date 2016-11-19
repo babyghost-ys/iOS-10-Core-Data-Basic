@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfPrice: UITextField!
@@ -18,10 +18,11 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     var storesArray = [Store]()
     var itemToEdit: Item?
+    var firstTimeLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if let topItem = self.navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -29,29 +30,43 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         
         storePicker.delegate = self
         storePicker.dataSource = self
-        
-//        let store = Store(context: context)
-//        store.name = "Best Buy"
-//        let store2 = Store(context: context)
-//        store2.name = "Tesco"
-//        let store3 = Store(context: context)
-//        store3.name = "Curry PC"
-//        let store4 = Store(context: context)
-//        store4.name = "K Mart"
-//        
-//        AppD.saveContext()
+        //deleteStores()
+        if firstTimeLoading {
+            let store = Store(context: context)
+            store.name = "Best Buy"
+            let store2 = Store(context: context)
+            store2.name = "Tesco"
+            let store3 = Store(context: context)
+            store3.name = "Curry PC"
+            let store4 = Store(context: context)
+            store4.name = "K Mart"
+            
+            AppD.saveContext()
+            firstTimeLoading = false
+        }
         getStores()
         
         if itemToEdit != nil {
             loadItemData()
         }
     }
-
+    
+    func deleteStores(){
+        let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        let delRequest: NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+        let coord = context.persistentStoreCoordinator
+        do {
+            try coord?.execute(delRequest, with: context)
+        } catch {
+            // TODO: handle the error
+        }
+    }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = storesArray[row]
         return store.name
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return storesArray.count
     }
@@ -65,8 +80,8 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func savePressed(_ sender: Any) {
-        var item = Item!
-        if itemToEdit = nil {
+        var item: Item!
+        if itemToEdit == nil {
             item = Item(context: context)
         } else {
             item = itemToEdit
@@ -109,7 +124,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                 repeat{
                     let s = storesArray[index]
                     if s.name == store.name {
-                        storePicker.selectRow(index, inComponent: 0, animated: true)
+                        storePicker.selectRow(index, inComponent: 0, animated: false)
                         break
                     }
                     index += 1

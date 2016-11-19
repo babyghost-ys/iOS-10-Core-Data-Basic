@@ -44,7 +44,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         configureCell(cell: cell, indexpath: indexPath as NSIndexPath)
-        return UITableViewCell()
+        return cell
     }
     
     func configureCell(cell: ItemCell, indexpath: NSIndexPath){
@@ -109,7 +109,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
+        switch(type) {
         case .insert:
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
