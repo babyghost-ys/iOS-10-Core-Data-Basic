@@ -17,6 +17,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     @IBOutlet weak var tfDetails: UITextField!
     
     var storesArray = [Store]()
+    var itemToEdit: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,10 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
 //        
 //        AppD.saveContext()
         getStores()
+        
+        if itemToEdit != nil {
+            loadItemData()
+        }
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -60,7 +65,13 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     @IBAction func savePressed(_ sender: Any) {
-        let item = Item(context: context)
+        var item = Item!
+        if itemToEdit = nil {
+            item = Item(context: context)
+        } else {
+            item = itemToEdit
+        }
+        
         guard let title = tfTitle.text, let price = tfPrice.text, let details = tfDetails.text else{
             return
         }
@@ -72,7 +83,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         
         AppD.saveContext()
         
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
         
     }
     
@@ -83,6 +94,27 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
             self.storePicker.reloadAllComponents()
         } catch {
             //error
+        }
+    }
+    
+    func loadItemData(){
+        if let item = itemToEdit {
+            tfTitle.text = item.title
+            tfPrice.text = "\(item.price)"
+            tfDetails.text = item.details
+            
+            if let store = item.toStore {
+                var index = 0
+                
+                repeat{
+                    let s = storesArray[index]
+                    if s.name == store.name {
+                        storePicker.selectRow(index, inComponent: 0, animated: true)
+                        break
+                    }
+                    index += 1
+                } while (index < storesArray.count)
+            }
         }
     }
 }
