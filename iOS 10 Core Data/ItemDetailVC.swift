@@ -91,6 +91,10 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     @IBAction func savePressed(_ sender: Any) {
         var item: Item!
+        let pic = Image(context: context)
+        pic.image = imageThumbView.image
+        
+        
         if itemToEdit == nil {
             item = Item(context: context)
         } else {
@@ -103,6 +107,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         item.title = title
         item.price = (price as NSString).doubleValue
         item.details = details
+        item.toImage = pic
         
         item.toStore = storesArray[storePicker.selectedRow(inComponent: 0)]
         
@@ -127,6 +132,7 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
             tfTitle.text = item.title
             tfPrice.text = "\(item.price)"
             tfDetails.text = item.details
+            imageThumbView.image = item.toImage?.image as? UIImage
             
             if let store = item.toStore {
                 var index = 0
