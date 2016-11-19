@@ -9,15 +9,17 @@
 import UIKit
 import CoreData
 
-class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     @IBOutlet weak var storePicker: UIPickerView!
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfPrice: UITextField!
     @IBOutlet weak var tfDetails: UITextField!
+    @IBOutlet weak var imageThumbView: UIImageView!
     
     var storesArray = [Store]()
     var itemToEdit: Item?
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,9 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         if itemToEdit != nil {
             loadItemData()
         }
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
     }
     
     func deleteStores(){
@@ -136,6 +141,27 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                 } while (index < storesArray.count)
             }
         }
+    }
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            AppD.saveContext()
+        }
+        
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addImage(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageThumbView.image = img
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

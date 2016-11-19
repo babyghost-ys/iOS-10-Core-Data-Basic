@@ -156,7 +156,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-Gy-Tp0">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-Gy-Tp0">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -237,9 +237,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit" id="q3s-i6-wvA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="hMc-5g-cL4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="hMc-5g-cL4">
+                            <connections>
+                                <action selector="deletePressed:" destination="7TZ-qG-7wt" id="tzy-hl-2Dt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageThumbView" destination="0ZO-Gy-Tp0" id="nbD-e4-IQH"/>
                         <outlet property="storePicker" destination="uOS-tj-8Pf" id="qhB-cf-79y"/>
                         <outlet property="tfDetails" destination="hNk-WH-An3" id="NnW-1G-VoL"/>
                         <outlet property="tfPrice" destination="ljX-vc-nni" id="fav-d6-5mu"/>
@@ -247,7 +252,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDb-2a-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="EZn-A8-vZE"/>
+                <tapGestureRecognizer id="EZn-A8-vZE">
+                    <connections>
+                        <action selector="addImage:" destination="7TZ-qG-7wt" id="62S-2P-rnH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1672.8" y="-558.17091454272872"/>
         </scene>
