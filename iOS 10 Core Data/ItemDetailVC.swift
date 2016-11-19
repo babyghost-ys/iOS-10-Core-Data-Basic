@@ -18,7 +18,6 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
     
     var storesArray = [Store]()
     var itemToEdit: Item?
-    var firstTimeLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,14 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         storePicker.delegate = self
         storePicker.dataSource = self
         //deleteStores()
-        if firstTimeLoading {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        if !launchedBefore {
             let store = Store(context: context)
             store.name = "Best Buy"
             let store2 = Store(context: context)
@@ -42,7 +48,6 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
             store4.name = "K Mart"
             
             AppD.saveContext()
-            firstTimeLoading = false
         }
         getStores()
         
@@ -124,12 +129,16 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
                 repeat{
                     let s = storesArray[index]
                     if s.name == store.name {
-                        storePicker.selectRow(index, inComponent: 0, animated: false)
+                        storePicker.selectRow(index, inComponent: 0, animated: true)
                         break
                     }
                     index += 1
                 } while (index < storesArray.count)
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
