@@ -71,6 +71,7 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
         fetchRequestofType.sortDescriptors = [dateSort]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequestofType, managedObjectContext:context, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
         self.fetchResultController = controller
         
         do {

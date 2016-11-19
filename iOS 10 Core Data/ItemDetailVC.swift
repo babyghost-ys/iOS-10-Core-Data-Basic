@@ -59,6 +59,23 @@ class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSour
         
     }
     
+    @IBAction func savePressed(_ sender: Any) {
+        let item = Item(context: context)
+        guard let title = tfTitle.text, let price = tfPrice.text, let details = tfDetails.text else{
+            return
+        }
+        item.title = title
+        item.price = (price as NSString).doubleValue
+        item.details = details
+        
+        item.toStore = storesArray[storePicker.selectedRow(inComponent: 0)]
+        
+        AppD.saveContext()
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
     func getStores(){
         let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
         do {
