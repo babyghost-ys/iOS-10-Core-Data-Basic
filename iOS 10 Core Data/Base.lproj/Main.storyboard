@@ -236,6 +236,12 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="q3s-i6-wvA">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="hMc-5g-cL4"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="storePicker" destination="uOS-tj-8Pf" id="qhB-cf-79y"/>
+                        <outlet property="tfDetails" destination="hNk-WH-An3" id="NnW-1G-VoL"/>
+                        <outlet property="tfPrice" destination="ljX-vc-nni" id="fav-d6-5mu"/>
+                        <outlet property="tfTitle" destination="X2u-7b-i7l" id="55n-Bf-uXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDb-2a-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="EZn-A8-vZE"/>

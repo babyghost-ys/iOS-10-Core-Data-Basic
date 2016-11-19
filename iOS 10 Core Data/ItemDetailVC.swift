@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
-class ItemDetailVC: UIViewController {
+class ItemDetailVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var storePicker: UIPickerView!
+    @IBOutlet weak var tfTitle: UITextField!
+    @IBOutlet weak var tfPrice: UITextField!
+    @IBOutlet weak var tfDetails: UITextField!
+    
+    var storesArray = [Store]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,22 +25,47 @@ class ItemDetailVC: UIViewController {
         if let topItem = self.navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
+        
+        storePicker.delegate = self
+        storePicker.dataSource = self
+        
+//        let store = Store(context: context)
+//        store.name = "Best Buy"
+//        let store2 = Store(context: context)
+//        store2.name = "Tesco"
+//        let store3 = Store(context: context)
+//        store3.name = "Curry PC"
+//        let store4 = Store(context: context)
+//        store4.name = "K Mart"
+//        
+//        AppD.saveContext()
+        getStores()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let store = storesArray[row]
+        return store.name
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return storesArray.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+    
+    func getStores(){
+        let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        do {
+            self.storesArray = try context.fetch(fetchRequest)
+            self.storePicker.reloadAllComponents()
+        } catch {
+            //error
+        }
+    }
 }
