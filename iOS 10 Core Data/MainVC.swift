@@ -85,7 +85,24 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
     func attemptFetch(){
         let fetchRequestofType: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        fetchRequestofType.sortDescriptors = [dateSort]
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            fetchRequestofType.sortDescriptors = [dateSort]
+            break
+        case 1:
+            fetchRequestofType.sortDescriptors = [priceSort]
+            break
+        case 2:
+            fetchRequestofType.sortDescriptors = [titleSort]
+            break
+        default:
+            fetchRequestofType.sortDescriptors = [dateSort]
+            break
+        }
+        
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequestofType, managedObjectContext:context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -136,6 +153,13 @@ class MainVC: UIViewController, UITableViewDelegate,UITableViewDataSource, NSFet
             }
             break
         }
+    }
+    
+    
+    @IBAction func segmentControlChanged(_ sender: Any) {
+        
+        attemptFetch()
+        tableView.reloadData()
     }
     
     func generateTestData(){
